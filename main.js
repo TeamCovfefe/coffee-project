@@ -21,6 +21,7 @@ var filteredCoffees = [];
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
+    filteredCoffees = [];
     coffees.forEach(function (coffee) {
         if (selectedRoast !== "all") {
             if (coffee.roast === selectedRoast) {
