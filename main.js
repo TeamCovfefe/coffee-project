@@ -21,9 +21,9 @@ function renderCoffees(coffees) {
 function doThing() {
     var input = document.getElementById("myInput");
     var filter = input.value.toUpperCase();
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
+    for (var i = 0; i < li.length; i++) {
+        var a = li[i].getElementsByTagName("a")[0];
+        var txtValue = a.textContent || a.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
             li[i].style.display = "";
         } else {
@@ -36,6 +36,7 @@ function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
+    var searchedCovfefe = [];
     coffees.forEach(function (coffee) {
         if (selectedRoast !== "all") {
             if (coffee.roast === selectedRoast) {
@@ -45,6 +46,12 @@ function updateCoffees(e) {
             filteredCoffees.push(coffee);
         }
     });
+    filteredCoffees.forEach(function (covfefe) {
+        if (searchQuery.toUpperCase().includes(covfefe.toUpperCase())) {
+            searchedCovfefe.push(covfefe);
+        }
+    });
+    console.log(searchedCovfefe);
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
@@ -69,6 +76,7 @@ var coffees = [
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
+var searchQuery = document.querySelector("#search");
 
 tbody.innerHTML = renderCoffees(coffees);
 
