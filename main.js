@@ -30,17 +30,20 @@ function updateCoffees(e) {
             filteredCoffees.push(coffee);
         }
     });
-    if (searchQuery == true) {
-        filteredCoffees.forEach(function (coffee) {
-            var handler = "" + coffee;
-            if (handler.toUpperCase().includes(searchQuery.toUpperCase())) {
-                searchedCoffee.push(coffee);
-            }
-        });
-    }
-    console.log(searchedCoffee);
     tbody.innerHTML = renderCoffees(filteredCoffees);
+}
+// Coffee type search bar HOPEFULLY
 
+function searchedCoffee(e) {
+    e.preventDefault(); // don't submit the form, we just want to update the data
+    var searchQuery = searchHandler.value;
+    var searchedCoffees = [];
+    coffees.forEach(function (coffee) {
+            if (coffee.name.includes(searchQuery)) {
+                searchedCoffees.push(coffee);
+            }
+    });
+    tbody.innerHTML = renderCoffees(searchedCoffees);
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -69,3 +72,4 @@ var searchHandler = document.querySelector("#search");
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
+searchHandler.addEventListener('keyup', searchedCoffee);
