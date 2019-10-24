@@ -1,12 +1,20 @@
 "use strict";
 
-function renderCoffee(coffee) {
-    var html = '<div class="coffee">';
-    // html += '<td>' + coffee.id + '</td>';
-    html += '<h2>' + coffee.name + '</h2>';
-    html += '<h3>' + "Roast: " + coffee.roast + '</h3>';
-    html += '</div>';
+// function renderCoffee(coffee) {
+//     var html = '<div class="coffee" id="coffee-display">';
+//     // html += '<td>' + coffee.id + '</td>';
+//     html += '<h2>' + coffee.name + '</h2>';
+//     html += '<h3>' + "Roast: " + coffee.roast + '</h3>';
+//     html += '</div>';
+//     return html;
+// }
 
+function renderCoffee(coffee) {
+    var html = '<li class="coffee" id="coffee-display">';
+    // html += '<td>' + coffee.id + '</td>';
+    html += '<div class="content"><h2>' + coffee.name + '</h2>';
+    html += '<h3>' + "Roast: " + coffee.roast + '</h3></div>';
+    html += '</li>';
     return html;
 }
 
@@ -17,26 +25,12 @@ function renderCoffees(coffees) {
     }
     return html;
 }
-
-function doThing() {
-    var input = document.getElementById("myInput");
-    var filter = input.value.toUpperCase();
-    for (var i = 0; i < li.length; i++) {
-        var a = li[i].getElementsByTagName("a")[0];
-        var txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
-}
-
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
-    var searchedCovfefe = [];
+    var searchQuery = document.querySelector("#search");
+    var searchedCoffee = [];
     coffees.forEach(function (coffee) {
         if (selectedRoast !== "all") {
             if (coffee.roast === selectedRoast) {
@@ -46,12 +40,7 @@ function updateCoffees(e) {
             filteredCoffees.push(coffee);
         }
     });
-    filteredCoffees.forEach(function (covfefe) {
-        if (searchQuery.toUpperCase().includes(covfefe.toUpperCase())) {
-            searchedCovfefe.push(covfefe);
-        }
-    });
-    console.log(searchedCovfefe);
+
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
@@ -76,7 +65,6 @@ var coffees = [
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
-var searchQuery = document.querySelector("#search");
 
 tbody.innerHTML = renderCoffees(coffees);
 
