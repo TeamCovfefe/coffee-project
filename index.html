@@ -11,41 +11,20 @@
     <form>
         <label for="roast-selection"></label>
         <select id="roast-selection">
+            <option>all</option>
             <option>light</option>
             <option>medium</option>
             <option>dark</option>
         </select>
-        <input id="submit" type="submit" />
+        <input id="submit" type="submit"/>
+
+        <input type="text" id="search" onkeyup="doThing()" placeholder="Search">
+
+
     </form>
-    <table>
-        <thead>
-            <tr>
-<!--                <th>ID</th>-->
-                <th>NAME</th>
-                <th>ROAST</th>
-            </tr>
-        </thead>
-        <tbody id="coffees"></tbody>
-    </table>
-<!--    <div class="main">-->
-<!--        <div class="search-results">-->
-<!--            <div class="coffee">-->
-
-<!--            </div>-->
-<!--            <div class="coffee">-->
-
-<!--            </div>-->
-<!--            <div class="coffee">-->
-
-<!--            </div>-->
-<!--            <div class="coffee">-->
-
-<!--            </div>-->
-<!--            <div class="coffee">-->
-
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+    <div id="table">
+        <div id="coffees"></div>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>

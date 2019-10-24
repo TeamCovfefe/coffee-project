@@ -1,11 +1,11 @@
 "use strict";
 
 function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
+    var html = '<div class="coffee">';
     // html += '<td>' + coffee.id + '</td>';
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
+    html += '<h2>' + coffee.name + '</h2>';
+    html += '<h3>' + "Roast: " + coffee.roast + '</h3>';
+    html += '</div>';
 
     return html;
 }
@@ -18,12 +18,30 @@ function renderCoffees(coffees) {
     return html;
 }
 
+function doThing() {
+    var input = document.getElementById("myInput");
+    var filter = input.value.toUpperCase();
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
-    coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) {
+    coffees.forEach(function (coffee) {
+        if (selectedRoast !== "all") {
+            if (coffee.roast === selectedRoast) {
+                filteredCoffees.push(coffee);
+            }
+        } else {
             filteredCoffees.push(coffee);
         }
     });
