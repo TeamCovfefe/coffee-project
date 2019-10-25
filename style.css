@@ -1,4 +1,22 @@
+form {
+    display: flex;
+    justify-content: center;
+}
+
 .coffee {
     border: 1px solid black;
     padding: 15px;
+    background-color: peru;
+    width: 12em;
+    height: 12em;
+}
+.table {
+    position: center;
+}
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    width: 48em;
+    flex-wrap: wrap;
 }
