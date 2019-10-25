@@ -2,13 +2,39 @@ form {
     display: flex;
     justify-content: center;
 }
+/* Container holding the image and the text */
+#happy-header{
+    margin-top: 0;
+    color: white;
+    font-size: 70px;
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    top: 360px;
+    right: 100px;
+    bottom: 0px;
+    left: 50px;
 
+}
+body{
+    background-color: burlywood;
+}
 .coffee {
     border: 1px solid black;
     padding: 15px;
     background-color: peru;
     width: 12em;
     height: 12em;
+    box-shadow: 5px 10px 15px 3px;
+    margin: 10px;
+}
+.coffeeClass{
+    background: url("img/bon-fire-png.jpg");
+    border: 1px solid;
+    box-shadow: 0px 0px 10px;
+    margin: 10px;
+    overflow: hidden;
+
 }
 .table {
     position: center;
