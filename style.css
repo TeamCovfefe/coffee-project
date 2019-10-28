@@ -1,5 +1,8 @@
 body{
-    background-color: burlywood;
+    /*background-color: burlywood;*/
+    background-color: peru;
+    background-image: url("img/beans.jpg");
+    background-size: 100% 100%;
 }
 form {
     display: flex;
@@ -8,7 +11,7 @@ form {
 #form-bar {
     width: 100%;
     height: 36px;
-    background-color: peru;
+    background-color: burlywood;
 }
 /* Container holding the image and the text */
 #happy-header{
@@ -41,7 +44,9 @@ form {
     overflow: hidden;
     position: center;
     width: 46em;
-    height: 600px;
+    /*height: unset;*/
+    /*height: 600px;*/
+    height: 1200px;
 }
 ul {
     list-style: none;
@@ -49,4 +54,7 @@ ul {
     flex-direction: row;
     width: 48em;
     flex-wrap: wrap;
+}
+h3 {
+    font-style: italic;
 }
