@@ -7,7 +7,6 @@ function renderCoffee(coffee) {
     html += '</li>';
     return html;
 }
-
 function renderCoffees(coffees) {
     var html = '';
     for(var i = coffees.length - 1; i >= 0; i--) {
@@ -15,7 +14,6 @@ function renderCoffees(coffees) {
     }
     return html;
 }
-
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
